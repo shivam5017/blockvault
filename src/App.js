@@ -1,24 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Outlet } from 'react-router-dom';
+import styled from 'styled-components';
+import bgImage from './Images/bg.jpg'; // This will still be fetched eventually
+import OnBoard from './Pages/onBoard/onBoard';
+import Login from './Pages/loginWallet/login';
+import Dashboard from './Pages/dashboard/dashboard';
+import { WalletProvider } from './Provider/walletContext';
+
+const BackgroundWrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  background: ${({ isLoaded }) =>
+    isLoaded
+      ? `linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 5, 5) 100%
+        ), url(${bgImage})`
+      : 'url("data:image/jpeg;base64,...")'}; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  transition: background 0.5s ease-in-out;
+`;
+
+function Layout() {
+  return (
+    <div>
+      {/* Navbar */}
+      {/* Layout */}
+      <div className="content">
+        <Outlet /> {/* This renders the current route's component */}
+      </div>
+      {/* Footer */}
+    </div>
+  );
+}
 
 function App() {
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const [seedPhrase, setSeedPhrase] = useState("");
+  const [wallets, setWallets] = useState([]);
+ 
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = bgImage;
+    img.onload = () => setBgLoaded(true);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WalletProvider>
+    <Router>
+      <BackgroundWrapper isLoaded={bgLoaded}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<OnBoard  />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      </BackgroundWrapper>
+    </Router>
+    </WalletProvider>
   );
 }
 
