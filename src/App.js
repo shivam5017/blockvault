@@ -40,8 +40,7 @@ function Layout() {
 
 function App() {
   const [bgLoaded, setBgLoaded] = useState(false);
-  const [seedPhrase, setSeedPhrase] = useState("");
-  const [wallets, setWallets] = useState([]);
+
  
 
   useEffect(() => {
