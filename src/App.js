@@ -6,6 +6,11 @@ import OnBoard from './Pages/onBoard/onBoard';
 import Login from './Pages/loginWallet/login';
 import Dashboard from './Pages/dashboard/dashboard';
 import { WalletProvider } from './Provider/walletContext';
+import Navbar from "./Components/Navbar/navbar"
+import { useLocation } from 'react-router-dom';
+
+
+
 
 const BackgroundWrapper = styled.div`
   height: 100vh;
@@ -26,9 +31,14 @@ const BackgroundWrapper = styled.div`
 `;
 
 function Layout() {
+  const location = useLocation(); 
+
+  const hiddenNavbarRoutes = ['/','/dashboard']; 
+  const shouldHideNavbar = hiddenNavbarRoutes.includes(location.pathname);
+
   return (
     <div>
-      {/* Navbar */}
+        {!shouldHideNavbar && <Navbar />}
       {/* Layout */}
       <div className="content">
         <Outlet /> {/* This renders the current route's component */}

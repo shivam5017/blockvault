@@ -273,7 +273,7 @@ const LOGIN_HEADING_CONTAINER = styled.div`
 const LOGIN_MAIN_SEED_CONTAINER = styled.div`
    width: 100%; /* Full width */
     max-width: 600px; /* Set a max width */
-    height: 55vh; /* Fixed height to enable scrolling */
+    height: 45vh; /* Fixed height to enable scrolling */
     overflow-y: auto; /* Enable vertical scrolling */
     padding: 10px; /* Padding inside the container */
     box-sizing: border-box; /* Include padding and border in element's total width and height */
