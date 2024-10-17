@@ -7,9 +7,9 @@ import {
   
 } from "../styled";
 
-//enroll certain under demand build garbage wet buffalo fame awake drift wedding
-//0x715 1st
-//0x109
+// sketch mimic mule uphold outside right swift output height garment hedgehog vacant
+// 0xd47
+//
 const Dashboard = () => {
     
     const {seedPhrase,wallets,selectedWalletIndex,selectedWallet,createWalletFromSeed,setSelectedWalletIndex,setSelectedWallet } = useContext(WalletContext);
@@ -19,6 +19,7 @@ const Dashboard = () => {
       const selectedWallet = wallets[selectedIndex];
       setSelectedWallet(selectedWallet);
       setSelectedWalletIndex(selectedIndex);
+   
     };
     console.log('sed',seedPhrase)
 
