@@ -27,6 +27,7 @@ const WalletDiv = ({ wallets, selectedWalletIndex, handleChange }) => {
                     Wallet {index + 1}
                   </option>
                 ))}
+                
               </Select>
             </Label>
 

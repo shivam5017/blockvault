@@ -333,7 +333,6 @@ const AccountContainer = styled.div`
   justify-content: center;
   align-items: center;
   background: #333;
-  border:'1px solid red';
   padding: 10px;
 `;
 
@@ -343,8 +342,10 @@ const AccountBox = styled.div`
   border-radius: 8px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
 `;
 
 const Label = styled.label`
@@ -353,9 +354,8 @@ const Label = styled.label`
 `;
 
 const Select = styled.select`
-  padding: 10px;
+  padding: 5px;
   font-size: ${palette.font.extra_sm};
-  border-radius: 5px;
   background-color: ${palette.colors.third};
   width: 100%;
   max-width: 300px;
@@ -367,7 +367,6 @@ const Address = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 5px;
 `;
 
 const Address_Text = styled.p`
@@ -391,6 +390,7 @@ const Add_ACCOUNT_BTN= styled.button`
 background-color: ${palette.colors.primary};
   color: ${palette.colors.secondary};
   border: none;
+  width:'100%';
   border-radius: 5px;
   padding: 10px;
   font-size: ${palette.font.extra_sm};
